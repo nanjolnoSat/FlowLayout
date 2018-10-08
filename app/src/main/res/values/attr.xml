@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="FlowLayout">
+        <attr name="layout_fl_widthPercent" format="string"/>
+        <attr name="layout_fl_heightPercent" format="string"/>
+        <attr name="layout_fl_paddingPercent" format="string"/>
+        <attr name="layout_fl_paddingLeftPercent" format="string"/>
+        <attr name="layout_fl_paddingTopPercent" format="string"/>
+        <attr name="layout_fl_paddingRightPercent" format="string"/>
+        <attr name="layout_fl_paddingBottomPercent" format="string"/>
+        <attr name="layout_fl_horizontalDividerSize" format="dimension"/>
+        <attr name="layout_fl_verticalDividerSize" format="dimension"/>
+        <attr name="layout_fl_horizontalDividerPercent" format="string"/>
+        <attr name="layout_fl_verticalDividerPercent" format="string"/>
+        <attr name="layout_fl_horizontalDividerColor" format="color"/>
+        <attr name="layout_fl_verticalDividerColor" format="color"/>
+        <attr name="layout_fl_horizontalDividerDrawable" format="reference|color"/>
+        <attr name="layout_fl_verticalDividerDrawable" format="reference|color"/>
+    </declare-styleable>
+    <declare-styleable name="FlowLayout_Layout">
+        <attr name="layout_fll_widthPercent" format="string"/>
+        <attr name="layout_fll_heightPercent" format="string"/>
+        <attr name="layout_fll_marginPercent" format="string"/>
+        <attr name="layout_fll_marginLeftPercent" format="string"/>
+        <attr name="layout_fll_marginTopPercent" format="string"/>
+        <attr name="layout_fll_marginRightPercent" format="string"/>
+        <attr name="layout_fll_marginBottomPercent" format="string"/>
+        <attr name="layout_fll_paddingPercent" format="string"/>
+        <attr name="layout_fll_paddingLeftPercent" format="string"/>
+        <attr name="layout_fll_paddingTopPercent" format="string"/>
+        <attr name="layout_fll_paddingRightPercent" format="string"/>
+        <attr name="layout_fll_paddingBottomPercent" format="string"/>
+        <attr name="layout_fll_textSizePercent" format="string"/>
+        <attr name="layout_fll_textLineSpacePercent" format="string"/>
+        <attr name="layout_fll_lvDividerHeightPercent" format="string"/>
+    </declare-styleable>
+    <declare-styleable name="PercentAbsoluteLayout_Layout">
+        <attr name="layout_percentX" format="string"/>
+        <attr name="layout_percentY" format="string"/>
+        <attr name="layout_percentWidth" format="string"/>
+        <attr name="layout_percentHeight" format="string"/>
+        <attr name="layout_percentTextSize" format="string"/>
+        <attr name="layout_percentTextLineSpacing" format="string"/>
+        <attr name="layout_percentLvDividerHeight" format="string"/>
+    </declare-styleable>
+</resources>
