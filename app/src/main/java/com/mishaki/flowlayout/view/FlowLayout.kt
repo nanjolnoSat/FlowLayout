@@ -18,9 +18,7 @@ import com.mishaki.flowlayout.util.parseHorizontalSize
 import com.mishaki.flowlayout.util.parseThisSize
 import com.mishaki.flowlayout.util.parseVerticalSize
 
-class FlowLayout : ViewGroup {
-    private val TAG = "FlowLayoutMsg"
-
+class FlowLayout : ViewGroup, View.OnTouchListener {
     private var widthPercent = -1f
     private var heightPercent = -1f
     private var paddingPercent = -1f
@@ -48,6 +46,8 @@ class FlowLayout : ViewGroup {
     private val verticalDividerPaint = Paint(Paint.ANTI_ALIAS_FLAG)
 
     var onChildClickListener: OnChildClickListener? = null
+
+    private val viewIndexMap = HashMap<View, Int>()
 
     constructor(context: Context) : this(context, null, 0)
     constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
@@ -352,14 +352,11 @@ class FlowLayout : ViewGroup {
         val verticalDividerSize = calcVerticalDividerSize()
         horizontalDividerList.clear()
         verticalDividerList.clear()
+        viewIndexMap.clear()
         for (i in 0 until childCount) {
             val child = getChildAt(i)
-            child.setOnTouchListener { _, event ->
-                if (event.action == MotionEvent.ACTION_UP) {
-                    onChildClickListener?.onChildClick(child, i)
-                }
-                false
-            }
+            viewIndexMap.put(child, i)
+            child.setOnTouchListener(this)
             if (child.visibility != View.GONE) {
                 val param = child.layoutParams as LayoutParams
 
@@ -455,6 +452,16 @@ class FlowLayout : ViewGroup {
                 canvas.drawRect(it, verticalDividerPaint)
             }
         }
+    }
+
+    override fun onTouch(v: View, event: MotionEvent): Boolean {
+        if (event.action == MotionEvent.ACTION_UP) {
+            val index = viewIndexMap[v]
+            if (index != null) {
+                onChildClickListener?.onChildClick(v, index)
+            }
+        }
+        return false
     }
 
     private fun drawableToBmp(drawable: Drawable): Bitmap {
